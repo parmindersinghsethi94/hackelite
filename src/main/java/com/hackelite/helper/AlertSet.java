@@ -6,25 +6,25 @@ import java.util.Set;
 public class AlertSet {
 
 	private static AlertSet alertMapping;
-	private static Set<String> alertMap = new HashSet<>();
+	private static Set<String> alertSet = new HashSet<>();
 
 	private AlertSet() {
 
 	}
 
-	public static AlertSet getZoneMapping() {
+	public static AlertSet getAlertMapping() {
 		if (alertMapping == null) {
 			alertMapping = new AlertSet();
 		}
 		return alertMapping;
 	}
 
-	public Set<String> getAlertMap() {
-		return alertMap;
+	public Set<String> getAlertSet() {
+		return alertSet;
 	}
 
-	public void setAlertinMap(String alert) {
-		alertMap.add(alert);
+	public void setAlertinSet(String alert) {
+		alertSet.add(alert);
 	}
 
 }

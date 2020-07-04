@@ -3,6 +3,7 @@ package com.hackelite.models;
 public class UIResponseModel extends UIRequestModel{
 
 	private int responseCode;
+	private int httpStatus;	
 	private String responseMessage;
 	private String notificationMessage;
 	public int getResponseCode() {
@@ -22,5 +23,11 @@ public class UIResponseModel extends UIRequestModel{
 	}
 	public void setNotificationMessage(String notificationMessage) {
 		this.notificationMessage = notificationMessage;
+	}
+	public int getHttpStatus() {
+		return httpStatus;
+	}
+	public void setHttpStatus(int httpStatus) {
+		this.httpStatus = httpStatus;
 	}
 }

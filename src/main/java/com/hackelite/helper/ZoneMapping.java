@@ -8,7 +8,7 @@ import java.util.Set;
 public class ZoneMapping {
 
 	private static ZoneMapping zoneMapping;
-	private static Map<String, Set<String>> zoneMap = new HashMap<>();
+	private Map<String, Set<String>> zoneMap = new HashMap<>();
 
 	private ZoneMapping() {
 		zoneMap.put("zone1", getZone(1));
@@ -24,6 +24,11 @@ public class ZoneMapping {
 		return zoneMapping;
 	}
 
+	public Map<String, Set<String>> getZoneMap(){
+		return zoneMap;
+	}
+	
+	
 	private Set<String> getZone(int zonename) {
 		Set<String> zoneset = new HashSet<>();
 		switch (zonename) {
