@@ -3,14 +3,19 @@ package com.hackelite.services;
 import java.util.Map;
 import java.util.Set;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Component;
 
+import com.hackelite.controller.HackEliteRestController;
 import com.hackelite.helper.AlertSet;
 import com.hackelite.helper.ComponentMapping;
 import com.hackelite.models.UIResponseModel;
 
 @Component
 public class HackEliteService {
+	
+	private static final Logger LOG = LogManager.getLogger(HackEliteService.class);
 	
 	private Map<String,Integer> alertSet = AlertSet.getAlertMapping().getAlertSet();
 	private Map<String, Set<String>> componentMap = ComponentMapping.getZoneMapping().getComponentMap();
@@ -24,55 +29,54 @@ public class HackEliteService {
 
 	
 	
-	public UIResponseModel processAlert(String componentname) {
+	public UIResponseModel processAlert(String componentName) {
 		int responseCode = 0;
-		Set<String> zonenameSet = componentMap.get(componentname);
-		String zonename = zonenameSet.iterator().next();
+		Set<String> zoneNameSet = componentMap.get(componentName);
+		String zoneName = zoneNameSet.iterator().next();
 		UIResponseModel uiResponseModel = new UIResponseModel();
-		Integer noOfAlertsCame = alertSet.get(zonename);
+		Integer noOfAlertsCame = alertSet.get(zoneName);
 		if(noOfAlertsCame!=null) {
 			//zone is already there
 			responseCode = noOfAlertsCame.intValue();
 		}else {
 			//component is not there
 			responseCode = 0;
-			AlertSet.getAlertMapping().setAlertinSet(zonename);
+			AlertSet.getAlertMapping().setAlertinSet(zoneName);
 		}
-		uiResponseModel.setZoneName(zonename);
+		uiResponseModel.setZoneName(zoneName);
 		uiResponseModel.setResponseCode(responseCode);
-		uiResponseModel.setNotificationMessage(getNotifiationString(responseCode));
-		
+		uiResponseModel.setNotificationMessage(getNotificationMessage(responseCode, zoneName));
 		return uiResponseModel;
 	}
 	
 
-	private String getNotifiationString(int noOfAlerts) {
-		String notificationString = "";
+	private String getNotificationMessage(int noOfAlerts, String zoneName) {
+		String notificationMsg = "";
 		switch(noOfAlerts) {
 			case 0:
-				notificationString = "This is learning phase";
+				notificationMsg = "Application is in learning mode";
 				break;
 			case 1:
-				notificationString = "As this is the first temp alert, section has turned in warning state";
+				notificationMsg = "Application has received the 1st temperature alert for the section "+ zoneName + ". The section is in warning state.";
 				break;
 			case 2:
-				notificationString = "As there are 2 temp alert from same section, section is somewhere between warning and critical state";
+				notificationMsg = "Application has received 2 temperature alerts for the section "+ zoneName + ". The section is in between warning and critical state.";
 				break;
 			case 3:
-				notificationString = "As there are 4 temp alert from same section, section has turned into critical state";
+				notificationMsg = "Application has received 3 temperature alerts for the section "+ zoneName + ". The section is set to critical state.";
 				break;
 			case 4:
-				notificationString = "As there are 4 temp alert from same section, section has turned in very critical state";
+				notificationMsg = "Application has received 4 temperature alerts for the section "+ zoneName + ". The section is in extremely critical state.";
 				break;
 			case 5:
-				notificationString = "As there are  5 temp alert from same section, section has turned in worse state";
+				notificationMsg = "Application has received 5 temperature alerts for the section "+ zoneName + ". The section is in worse than extremely critical state.";
 				break;
 			default:
-				notificationString = "As there are more then 5 temp alert from same section, section has turned in worse state";
+				notificationMsg = "Application has received more than 5 temperature alerts for the section "+ zoneName + ". The section is in the worst possible state.";
 				break;
 		}
-	
-		return notificationString;
+		LOG.debug("Notification message returned is {}", notificationMsg);
+		return notificationMsg;
 	}
 	
 }

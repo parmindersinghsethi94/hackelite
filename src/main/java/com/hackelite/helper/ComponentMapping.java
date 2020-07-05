@@ -11,15 +11,15 @@ public class ComponentMapping {
 	private Map<String, Set<String>> componentMap = new HashMap<>();
 
 	private ComponentMapping() {
-		componentMap.put("Component A", getComponent('a'));
-		componentMap.put("Component B", getComponent('b'));
-		componentMap.put("Component C", getComponent('c'));
-		componentMap.put("Component D", getComponent('d'));
-		componentMap.put("Component E", getComponent('e'));
-		componentMap.put("Component F", getComponent('f'));
-		componentMap.put("Component G", getComponent('g'));
-		componentMap.put("Component H", getComponent('h'));
-		componentMap.put("Component I", getComponent('i'));
+		componentMap.put("ComponentA", getComponent('a'));
+		componentMap.put("ComponentB", getComponent('b'));
+		componentMap.put("ComponentC", getComponent('c'));
+		componentMap.put("ComponentD", getComponent('d'));
+		componentMap.put("ComponentE", getComponent('e'));
+		componentMap.put("ComponentF", getComponent('f'));
+		componentMap.put("ComponentG", getComponent('g'));
+		componentMap.put("ComponentH", getComponent('h'));
+		componentMap.put("ComponentI", getComponent('i'));
 	}
 
 	public static ComponentMapping getZoneMapping() {

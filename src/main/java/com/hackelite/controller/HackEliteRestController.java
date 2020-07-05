@@ -1,24 +1,31 @@
 package com.hackelite.controller;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.hackelite.models.UIResponseModel;
 import com.hackelite.services.HackEliteService;
+import com.hackelite.springboot.HackEliteApplication;
 
 @org.springframework.web.bind.annotation.RestController
-public class RestController {
+public class HackEliteRestController {
+	
+	private static final Logger LOG = LogManager.getLogger(HackEliteRestController.class);
+	
 	@Autowired
 	private HackEliteService service;
 	 
 	 
-	@RequestMapping("/alert/{componentname}/")
+	@RequestMapping("/hackelite/alert/{componentname}/")
 	public UIResponseModel generateAlert(@PathVariable("componentname") String componentname) {
+		LOG.debug("Inside generate Alert with component name {}", componentname);
 		UIResponseModel response =  service.processAlert(componentname);
 		response.setHttpStatus(200);
 		response.setComponentName(componentname);
-		
+		LOG.debug("Response for the generateAlert for componentName {} is {}", componentname, response.toString());
 		return response;
 	}
 }

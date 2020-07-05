@@ -48,7 +48,7 @@ $(document).ready(function(){
 		      alert(this);
 		    }
 		  };       
-	    xhttp.open("GET", "http://localhost:8080/alert/Component A/", true);
+	    xhttp.open("GET", "http://localhost:8080/hackelite/alert/ComponentA/", true);
 	        xhttp.send();
     }
     $('#nxtBtnID').click(onClickNXtBtn);
