@@ -42,21 +42,14 @@ $(document).ready(function(){
         $('#nxtBtnDivID').hide();
     }
     function lanConnBtnClick(){
-		alert('clicked');
-		
-	 $.ajax({
-            url: "http://localhost:8080/alert/11/123/",
-			// headers: {
-				// 'access-control-allow-origin value':'*' 
-			// }
-				
-			 // beforeSend: function(xhr) {
-				// xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
-			  // }
-        }).then(function(data) {
-		   alert(data);
-          
-        });
+	var xhttp = new XMLHttpRequest();
+		  xhttp.onreadystatechange = function() {
+		    if (this.readyState == 4 && this.status == 200) {
+		      alert(this);
+		    }
+		  };       
+	    xhttp.open("GET", "http://localhost:8080/alert/1/123/", true);
+	        xhttp.send();
     }
     $('#nxtBtnID').click(onClickNXtBtn);
     $('#lanConBtnID').click(lanConnBtnClick);
