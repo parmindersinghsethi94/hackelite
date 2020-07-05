@@ -1,12 +1,12 @@
 package com.hackelite.helper;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
 
 public class AlertSet {
 
 	private static AlertSet alertMapping;
-	private static Set<String> alertSet = new HashSet<>();
+	private static Map<String,Integer> alertMap = new HashMap<>();
 
 	private AlertSet() {
 
@@ -19,12 +19,13 @@ public class AlertSet {
 		return alertMapping;
 	}
 
-	public Set<String> getAlertSet() {
-		return alertSet;
+	public Map<String,Integer> getAlertSet() {
+		return alertMap;
 	}
 
-	public void setAlertinSet(String alert) {
-		alertSet.add(alert);
+	public void setAlertinSet(String zonename) {
+	 
+		alertMap.put(zonename, alertMap.getOrDefault(zonename, 0) + 1);
 	}
 
 }

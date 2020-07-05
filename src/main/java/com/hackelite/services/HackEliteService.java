@@ -12,7 +12,7 @@ import com.hackelite.models.UIResponseModel;
 @Component
 public class HackEliteService {
 	
-	private Set<String> alertSet = AlertSet.getAlertMapping().getAlertSet();
+	private Map<String,Integer> alertSet = AlertSet.getAlertMapping().getAlertSet();
 	private Map<String, Set<String>> zoneMap = ZoneMapping.getZoneMapping().getZoneMap();
 
 	// 0  means its learning phase and its started 
@@ -23,12 +23,13 @@ public class HackEliteService {
 	public UIResponseModel processAlert(String zonename,String componentname) {
 		int responseCode = 0;
 		UIResponseModel uiResponseModel = new UIResponseModel();
-		if(alertSet.contains(componentname)) {
+		if(alertSet.get(zonename)!=null) {
 			//component is already there
 			responseCode = 1;
 		}else {
 			//component is not there
 			responseCode = 0;
+			AlertSet.getAlertMapping().setAlertinSet(zonename);
 		}
 		uiResponseModel.setResponseCode(responseCode);
 		return uiResponseModel;

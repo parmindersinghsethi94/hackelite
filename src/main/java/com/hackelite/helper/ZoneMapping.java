@@ -7,6 +7,7 @@ import java.util.Set;
 
 public class ZoneMapping {
 
+	//reverse
 	private static ZoneMapping zoneMapping;
 	private Map<String, Set<String>> zoneMap = new HashMap<>();
 
@@ -38,14 +39,16 @@ public class ZoneMapping {
 		case 2:
 			zoneset.add("Component C");
 			zoneset.add("Component D");
-		case 3:
 			zoneset.add("Component E");
+		case 3:
 			zoneset.add("Component F");
-		case 4:
 			zoneset.add("Component G");
+		case 4:
+			zoneset.add("Component F");
+			zoneset.add("Component I");
 			zoneset.add("Component H");
 		default:
-			zoneset.add("Component M");
+			;
 		}
 		return zoneset;
 	}
