@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>FaultyFan</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="styles.css">
+  <script src="faultyFan.js"></script>
+
+</head>
+<body>
+
+<div id="container">
+<h3 class="textAlingCenter">A Method To Determine the Most Appropriate time to replace faulty FAN</h3>
+    <div id="verticalsContainer">
+        <div class="verticalLine verticalLine1"></div>
+        <div class="verticalLine verticalLine2"></div>
+        <div class="verticalLine verticalLine3"></div> 
+    </div>
+    <div>
+      
+        <div id="serverDivID" class="serverDiv">
+            <div id="section1divID" class="connectorsDiv">
+                <div>
+                    <img src="fan-icon-22.jpg"  id="sec1Image" class="imgFan" alt="" />
+                </div>
+                <div > 
+                    <button id="lanConBtnID" class="compBtn componentHeight" >LAN Connector</button><br>
+                    <span>Component A</span>
+                </div>
+                <div class="margingTop7"> 
+                    <button id="NetLanID" class="compBtn componentHeight" onclick="stopFan();">Network LAN Controller</button><br>
+                    <span>Component B</span>
+                </div>
+                <!--  -->
+            </div>
+            <div id="section2divID" class="connectorsDiv">
+                <div>
+                    <img src="fan-icon-22.jpg"  id="sec2Image" class="imgFan" alt="" />
+                </div>
+                <div > 
+                    <button class="compBtn componentHeight">Serial Connector</button><br>
+                    <span>Component C</span>
+                </div>
+                <div class="margingTop5"> 
+                    <button class="compBtn componentHeight">Serial Port Sharing</button><br>
+                    <span>Component D</span>
+                </div>
+                <div class="margingTop5"> 
+                    <button class="compBtn componentHeight">Mother Board Serial Controller</button><br>
+                    <span>Component E</span>
+                </div>
+            </div>
+             <div id="section3divID" class="connectorsDiv">
+                <div>
+                    <img src="fan-icon-22.jpg"  id="sec3Image" class="imgFan" alt="" />
+                </div>
+                <div class="margingTop2 ">
+                    <button class="btnWidth compFheight compBtn marginLeft1">Baseboard Management Controller</button><br>
+                    <span>Component F</span>
+                    
+                </div>
+                <div class="margingTop9  ">
+                    <button class=" compBtn componentHeight">System Interface</button><br>
+                    <span>Component G</span>
+                </div>
+             </div>
+             <div id="section4divID" class="connectorsDiv">
+                <div>
+                    <img src="fan-icon-22.jpg"  id="sec4Image" class="imgFan" alt="" />
+                </div>
+                <div class="margingTop2 marginLeft2 ">
+                    <button class="compBtn componentHeight">Non-volatail Storage</button><br>
+                    <span>Component H</span>
+                    
+                </div>
+                <div class="margingTop5  marginLeft2">
+                    <button class="compBtn componentHeight">Sensors & Control Circuit</button><br>
+                    <span>Component I</span>
+                </div>
+             </div>
+             
+        </div>
+        <div class="nxtButtonDiv" id="nxtBtnDivID">
+          <button class="nxtButton" id="nxtBtnID">Next</button>
+        </div>
+        <div id="sectionNaming">
+            <span>Section 1</span>
+            <span>Section 2</span>
+            <span>Section 3</span>
+            <span>Section 4</span>
+       </div>
+        
+    </div>
+       
+    
+</div>
+
+</body>
+</html>
