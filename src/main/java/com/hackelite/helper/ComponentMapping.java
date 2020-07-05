@@ -38,23 +38,32 @@ public class ComponentMapping {
 		switch (componentName) {
 		case 'a':
 			zoneset.add("zone1"); 
+			break;
 		case 'b':
 			zoneset.add("zone1"); 
+			break;
 		case 'c':
 			zoneset.add("zone2"); 
+			break;
 		case 'd':
 			zoneset.add("zone2"); 
+			break;
 		case 'e':
 			zoneset.add("zone2"); 
+			break;
 		case 'f':
 			zoneset.add("zone3"); 
 			zoneset.add("zone4"); 
+			break;
 		case 'g':
 			zoneset.add("zone3"); 
+			break;
 		case 'h':
 			zoneset.add("zone4"); 
+			break;
 		case 'i':
 			zoneset.add("zone4"); 
+			break;
 		 
 		default:
 			;
