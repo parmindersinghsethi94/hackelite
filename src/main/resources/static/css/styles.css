@@ -1,0 +1,177 @@
+body {
+    background-color: #ffffff;
+   
+    
+  }
+  
+  #container{
+      width: 100%;
+      position: relative;
+      
+      
+  }
+  .serverDiv{
+    display: flex;
+    width: 56rem;
+    height: 35rem;
+    border: #000000 2px solid;
+    border-radius: 2rem;
+    position: absolute;
+    left: 21%;
+    margin-top: 2rem;
+}
+    
+  
+  .verticalLine{
+    border-right: 1px solid green;
+    border-style: dashed;
+    height: 40rem;
+    position:absolute;
+
+  }
+  .verticalLine1{
+    left: 36%;
+   
+  }
+  .verticalLine2{
+    left: 51%;
+  }
+  .verticalLine3{
+    left: 65.8%;
+  }
+  .compA{
+     height: 500px;
+    margin-left: 2rem
+  }
+  #verticalsContainer{
+    width: 100%;
+    
+  }
+  .margingTop2{
+    margin-top: 2rem;
+  }
+  .margingTop5{
+    margin-top: 5rem;
+  }
+
+  .margingTop7{
+    margin-top: 7rem;
+  }
+  .margingTop9{
+    margin-top: 9rem;
+  }
+  .margingTop10{
+    margin-top: 10rem;
+  }
+  .marginLeft2{
+     margin-left: 2rem;
+ }
+ .marginLeft1{
+  margin-left: 1rem;
+}
+
+ 
+ .marginLeft6{
+     margin-left: 6rem;
+ }
+ .marginright14{
+     margin-right: 14rem;
+ }
+ .paddingLeft18{
+    padding-left: 18rem;
+ }
+  .connectorsDiv{
+    width: 14rem;
+    border-radius: 2rem;
+  }
+  .connectorsDiv div{
+      text-align: center;
+      padding-top: 1.5rem;
+  }
+  .connectorsDiv span{
+    font-size: 14px;
+    font-weight: bold;
+}
+.compBtn{
+  border-radius: 10px; 
+  color: white; 
+  cursor: pointer;
+  /* outline: white; */
+  background: #0099cc; 
+  background: -webkit-linear-gradient(#e5f4f9, #b2e0ef, #7fcce5, #0089b7, #0099CC, #b2e0ef); 
+  background: -o-linear-gradient(#e5f4f9, #b2e0ef, #7fcce5, #0089b7, #0099CC, #b2e0ef); 
+  background: -moz-linear-gradient(#e5f4f9, #b2e0ef, #7fcce5, #0089b7, #0099CC, #b2e0ef); 
+  background: linear-gradient(#e5f4f9, #b2e0ef, #7fcce5, #0089b7, #0099CC, #b2e0ef); 
+ 
+}
+/* .compBtn:hover {background-color: #3e8e41} */
+
+.compBtn:active {
+  /* background-color: #3e8e41; */
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+.compFheight{
+  height: 150px;
+}
+.componentHeight{
+  height: 62px;
+}
+
+  
+  #secHalfServCompDivID{
+      padding-top: 2%;
+      width: 50%;
+      display: flex;
+      margin: 2rem 0rem;
+  }
+
+  #secHalfServCompDivID div{
+      width:50%;
+      text-align: center;
+  }
+  .btnWidth{
+      width: 255px;
+
+  }
+  
+  #sectionNaming{
+    text-align: center;
+    position: fixed;
+    bottom: 4rem;
+    width: 100%;
+  }
+  #sectionNaming span{
+      display: inline-block;
+      width: 14%;
+      font-weight: bold;
+  }
+
+  .textAlingCenter{
+    text-align: center;
+  }
+  .imgFan{
+    width: 50px;
+  }
+  .rotateFanOnload {
+    -webkit-transform: "rotate(180deg)";
+    -moz-transform: "rotate(180deg)";
+    -o-transform: "rotate(180deg)";
+    transform: "rotate(180deg)";
+    -webkit-transition: "all 0.03s ease-out";
+    -moz-transition: "all 0.03s ease-out";
+    -o-transition: "all 0.03s ease-out";
+    transition: "all 0.03s ease-out";
+ }
+ .nxtButton{
+  background-color: lightskyblue;
+  width: 10rem;
+}
+ 
+ .nxtButtonDiv{
+   display: flex;
+   justify-content: flex-end;
+  
+ }
+
+  

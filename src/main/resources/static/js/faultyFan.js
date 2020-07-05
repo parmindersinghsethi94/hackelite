@@ -42,20 +42,21 @@ $(document).ready(function(){
         $('#nxtBtnDivID').hide();
     }
     function lanConnBtnClick(){
-		alert('clicked');
-		
-	 $.ajax({
-            url: "http://localhost:8080/alert/11/123/",
-			// headers: {
-				// 'access-control-allow-origin value':'*' 
-			// }
-				
-			 // beforeSend: function(xhr) {
-				// xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
-			  // }
+        // alert("to make ajax call")
+        // $.post("demo_test_post.asp",
+        // {
+        //     name: "Donald Duck",
+        //     city: "Duckburg"
+        // },
+        // function(data, status){
+        //     alert("Data: " + data + "\nStatus: " + status);
+        // });
+        $.ajax({
+            url: "http://rest-service.guides.spring.io/greeting"
         }).then(function(data) {
-		   alert(data);
-          
+           $('.greeting-id').append(data.id);
+           $('.greeting-content').append(data.content);
+           alert("to make ajax call");
         });
     }
     $('#nxtBtnID').click(onClickNXtBtn);
