@@ -16,8 +16,12 @@ public class HackEliteService {
 	private Map<String, Set<String>> componentMap = ComponentMapping.getZoneMapping().getComponentMap();
 
 	// 0  means its learning phase and its started 
-	// 1  means, its an after effect
-	// 2 means, its learning 
+	// 1  means, its an after effect and just started - means warning case
+	// 2  means, its an after effect and just started - means something between warning and critical case
+	// 3  means, its an after effect and just started - means critical case
+	// 4  means, its an after effect and just started - means more critical case
+	// 5 or 5+  means, its an after effect and just started - means worse case
+
 	
 	
 	public UIResponseModel processAlert(String componentname) {
@@ -25,14 +29,14 @@ public class HackEliteService {
 		Set<String> zonenameSet = componentMap.get(componentname);
 		String zonename = zonenameSet.stream().findFirst().toString();
 		UIResponseModel uiResponseModel = new UIResponseModel();
-		if(alertSet.get(zonename)!=null) {
-			//component is already there
-			responseCode = 1;
+		Integer noOfAlertsCame = alertSet.get(zonename);
+		if(noOfAlertsCame!=null) {
+			//zone is already there
+			responseCode = noOfAlertsCame.intValue();
 		}else {
 			//component is not there
 			responseCode = 0;
-			
-			AlertSet.getAlertMapping().setAlertinSet(zonename);;
+			AlertSet.getAlertMapping().setAlertinSet(zonename);
 		}
 		uiResponseModel.setZoneName(zonename);
 		uiResponseModel.setResponseCode(responseCode);
