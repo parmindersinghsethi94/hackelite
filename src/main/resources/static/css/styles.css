@@ -1,5 +1,5 @@
 body {
-    background-color: #ffffff;
+    background-color: #e8e6e6;
    
     
   }
@@ -94,9 +94,17 @@ body {
 }
 .compBtn{
   border-radius: 10px; 
-  color: white; 
   cursor: pointer;
-  /* outline: white; */
+  color: black;
+  font-size: 13px;
+  font-weight: bold;
+  border: none;
+  outline: white; 
+  
+ 
+}
+
+.compBtnBlue{
   background: #0099cc; 
   background: -webkit-linear-gradient(#e5f4f9, #b2e0ef, #7fcce5, #0089b7, #0099CC, #b2e0ef); 
   background: -o-linear-gradient(#e5f4f9, #b2e0ef, #7fcce5, #0089b7, #0099CC, #b2e0ef); 
@@ -104,11 +112,27 @@ body {
   background: linear-gradient(#e5f4f9, #b2e0ef, #7fcce5, #0089b7, #0099CC, #b2e0ef); 
  
 }
-/* .compBtn:hover {background-color: #3e8e41} */
+.compBtnYellow{
+  background: #ddb340; 
+  background: -webkit-linear-gradient(#f3e4bb, #e7d195, #f0cc69, #ddb340, #e2b027, #e7d195); 
+  background: -o-linear-gradient(#f3e4bb, #e7d195, #f0cc69, #ddb340, #e2b027, #e7d195); 
+  background: -moz-linear-gradient(#f3e4bb, #e7d195, #f0cc69, #ddb340, #e2b027, #e7d195); 
+  background: linear-gradient(#f3e4bb, #e7d195, #f0cc69, #ddb340, #e2b027, #e7d195); 
+ 
+}
+.compBtnAqua{
+  background: #52d3da; 
+  background: -webkit-linear-gradient(#e5f4f9, #bff2f5, #97ebf0, #52d3da, #73dde2, #97ebf0); 
+  background: -o-linear-gradient(#e5f4f9, #bff2f5, #97ebf0, #52d3da, #73dde2, #97ebf0); 
+  background: -moz-linear-gradient(#e5f4f9, #bff2f5, #97ebf0, #52d3da, #73dde2, #97ebf0); 
+  background: linear-gradient(#e5f4f9, #bff2f5, #97ebf0, #52d3da, #73dde2, #97ebf0); 
+ 
+}
+.compBtn:hover { outline: white; }
 
 .compBtn:active {
-  /* background-color: #3e8e41; */
-  box-shadow: 0 5px #666;
+ outline: white; 
+  box-shadow: 0 5px rgb(192, 168, 123);
   transform: translateY(4px);
 }
 .compFheight{
@@ -145,6 +169,7 @@ body {
       display: inline-block;
       width: 14%;
       font-weight: bold;
+      color: green;
   }
 
   .textAlingCenter{
