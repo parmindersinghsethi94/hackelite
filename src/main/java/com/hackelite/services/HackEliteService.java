@@ -1,5 +1,8 @@
 package com.hackelite.services;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -7,7 +10,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Component;
 
-import com.hackelite.controller.HackEliteRestController;
 import com.hackelite.helper.AlertSet;
 import com.hackelite.helper.ComponentMapping;
 import com.hackelite.models.UIResponseModel;
@@ -26,13 +28,21 @@ public class HackEliteService {
 	// 3  means, its an after effect and just started - means critical case
 	// 4  means, its an after effect and just started - means more critical case
 	// 5 or 5+  means, its an after effect and just started - means worse case
-
-	
-	
-	public UIResponseModel processAlert(String componentName) {
-		int responseCode = 0;
+ 
+	public List<UIResponseModel> processAlert(String componentName) {
+		List<UIResponseModel> uiResponseList = new ArrayList<>();
 		Set<String> zoneNameSet = componentMap.get(componentName);
-		String zoneName = zoneNameSet.iterator().next();
+		Iterator<String> it = zoneNameSet.iterator();
+		while (it.hasNext()) {
+			String zoneName = it.next();
+			uiResponseList.add(processZone(zoneName,componentName));
+		}
+		return uiResponseList;
+	}
+	
+	
+	private UIResponseModel processZone(String zoneName,String componentName) {
+		int responseCode = 0;
 		UIResponseModel uiResponseModel = new UIResponseModel();
 		Integer noOfAlertsCame = alertSet.get(zoneName);
 		if(noOfAlertsCame!=null) {
@@ -45,10 +55,11 @@ public class HackEliteService {
 		}
 		uiResponseModel.setZoneName(zoneName);
 		uiResponseModel.setResponseCode(responseCode);
+		uiResponseModel.setComponentName(componentName);
 		uiResponseModel.setNotificationMessage(getNotificationMessage(responseCode, zoneName));
+		
 		return uiResponseModel;
 	}
-	
 
 	private String getNotificationMessage(int noOfAlerts, String zoneName) {
 		String notificationMsg = "";
