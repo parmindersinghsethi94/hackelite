@@ -19,65 +19,66 @@
     <div>
       
         <div id="serverDivID" class="serverDiv">
-            <div id="section1divID" class="connectorsDiv">
+            <div id="zone1" class="connectorsDiv">
                 <div>
-                    <img src="css/fan-icon-22.jpg"  id="sec1Image" class="imgFan" alt="" />
+                    <img src="css/fan-icon-22.jpg"  id="zone1Image" class="imgFan rotate" alt="" />
                 </div>
                 <div > 
-                    <button id="lanConBtnID" class="compBtn componentHeight compBtnBlue" >LAN Connector</button><br>
+                    <button id="componentAID" class="compBtn componentHeight compBtnBlue" >LAN Connector</button><br>
                     <span>Component A</span>
                 </div>
                 <div class="margingTop7"> 
-                    <button id="NetLanID" class="compBtn componentHeight compBtnBlue" onclick="stopFan();">Network LAN Controller</button><br>
+                    <button id="componentBID" class="compBtn componentHeight compBtnBlue">Network LAN Controller</button><br>
                     <span>Component B</span>
                 </div>
                 <!--  -->
             </div>
-            <div id="section2divID" class="connectorsDiv">
+            <div id="zone2" class="connectorsDiv">
                 <div>
-                    <img src="css/fan-icon-22.jpg"  id="sec2Image" class="imgFan" alt="" />
+                    <img src="css/fan-icon-22.jpg"  id="zone2Image" class="imgFan rotate" alt="" />
                 </div>
                 <div > 
-                    <button class="compBtn componentHeight compBtnBlue">Serial Connector</button><br>
+                    <button id="componentCID" class="compBtn componentHeight compBtnBlue">Serial Connector</button><br>
                     <span>Component C</span>
                 </div>
                 <div class="margingTop5"> 
-                    <button class="compBtn componentHeight compBtnBlue">Serial Port Sharing</button><br>
+                    <button id="componentDID" class="compBtn componentHeight compBtnBlue">Serial Port Sharing</button><br>
                     <span>Component D</span>
                 </div>
                 <div class="margingTop5"> 
-                    <button class="compBtn componentHeight compBtnBlue">Mother Board Serial Controller</button><br>
+                    <button id="componentEID" class="compBtn componentHeight compBtnBlue">Mother Board Serial Controller</button><br>
                     <span>Component E</span>
                 </div>
             </div>
-             <div id="section3divID" class="connectorsDiv">
+             <div id="zone3" class="connectorsDiv">
                 <div>
-                    <img src="css/fan-icon-22.jpg"  id="sec3Image" class="imgFan" alt="" />
+                    <img src="css/fan-icon-22.jpg"  id="zone3Image" class="imgFan rotate" alt="" />
                 </div>
                 <div class="margingTop2 ">
-                    <button class="btnWidth compFheight compBtn compBtnYellow marginLeft1">Baseboard Management Controller</button><br>
+                    <button id="componentFID" class="btnWidth compFheight compBtn compBtnYellow marginLeft1">Baseboard Management Controller</button><br>
                     <span>Component F</span>
                     
                 </div>
                 <div class="margingTop9  ">
-                    <button class=" compBtn componentHeight compBtnYellow">System Interface</button><br>
+                    <button id="componentGID" class=" compBtn componentHeight compBtnYellow">System Interface</button><br>
                     <span>Component G</span>
                 </div>
              </div>
-             <div id="section4divID" class="connectorsDiv">
+             <div id="zone4" class="connectorsDiv">
                 <div>
-                    <img src="css/fan-icon-22.jpg"  id="sec4Image" class="imgFan" alt="" />
+                    <img src="css/fan-icon-22.jpg"  id="zone4Image" class="imgFan rotate" alt="" />
                 </div>
                 <div class="margingTop2 marginLeft2 ">
-                    <button class="compBtn  componentHeight compBtnAqua">Non-volatile Storage</button><br>
+                    <button id="componentHID" class="compBtn  componentHeight compBtnAqua">Non-volatile Storage</button><br>
                     <span>Component H</span>
                     
                 </div>
                 <div class="margingTop5  marginLeft2">
-                    <button class="compBtn componentHeight compBtnAqua">Sensors & Control Circuit</button><br>
+                    <button id="componentIID" class="compBtn componentHeight compBtnAqua">Sensors & Control Circuit</button><br>
                     <span>Component I</span>
                 </div>
              </div>
+             
              
         </div>
         <div class="nxtButtonDiv" id="nxtBtnDivID">
@@ -88,12 +89,15 @@
             <span>Section 2</span>
             <span>Section 3</span>
             <span>Section 4</span>
+           
        </div>
-        
-    </div>
        
+    </div>
+    <div id="notificationDivID" class="displayNone">
+       
+    </div> 
     
 </div>
-
+ 
 </body>
 </html>

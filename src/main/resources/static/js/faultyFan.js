@@ -3,37 +3,10 @@ $(document).ready(function(){
     var setTimeoutFxn;
     $('#sectionNaming').hide();
     $('#verticalsContainer').hide();
-    // $('#nxtBtnID').hide();
-    function runFan(degree, FanID){
-        var rotate = "rotate(" + degree + "deg)";
-            var trans = "all 0.03s ease-out";
-            $("#"+FanID).css({
-                "-webkit-transform": rotate,
-                "-moz-transform": rotate,
-                "-o-transform": rotate,
-                "msTransform": rotate,
-                "transform": rotate,
-                "-webkit-transition": trans,
-                "-moz-transition": trans,
-                "-o-transition": trans,
-                "transition": trans
-            });
-            
-            setTimeoutFxn =setTimeout(function() { runFan(++degree, FanID); },timeOut);
-            // console.log(degree)
-            // if(degree > 360){
-            //     clearTimeout(setTimeoutFxn);
-            //     degree = 0;
-            // }
     
-    }
-    runFan(45, "sec1Image");
-    runFan(45, "sec2Image");
-    runFan(45, "sec3Image");
-    runFan(45, "sec4Image");
     function stopFan(){
         clearTimeout(setTimeoutFxn);
-        console.log(setTimeoutFxn)
+        // console.log(setTimeoutFxn)
     }
 
     function onClickNXtBtn(){
@@ -41,18 +14,65 @@ $(document).ready(function(){
         $('#verticalsContainer').show();
         $('#nxtBtnDivID').hide();
     }
-    function lanConnBtnClick(){
-        var xhttp = new XMLHttpRequest();
-		  xhttp.onreadystatechange = function() {
-		    if (this.readyState == 4 && this.status == 200) {
-		      alert(this);
-		    }
-		  };       
-	    xhttp.open("GET", "http://localhost:8080/hackelite/alert/ComponentA/", true);
-	        xhttp.send();
+    function fetchAlertDetails(comp){
+        $.ajax({
+            url: "http://localhost:8080/hackelite/alert/"+comp.data+"/", 
+            success: function(result){
+                notiMsg = "";
+                for(var i=0; i < result.length; i++){
+                    notiMsg = notiMsg+result[i].notificationMessage+"</br>";
+                    switch (result[i].responseCode) { 
+                        case 1: 
+                            $('#'+result[i].zoneName).css("background", "#e7d195");
+                            $('#notificationDivID').css("background", '#e7d195');
+                            $('#'+result[i].zoneName+'Image').addClass("rotate2");
+                            break;
+                        case 2: 
+                            $('#'+result[i].zoneName).css("background", "#FFD700");
+                            $('#notificationDivID').css("background", "#FFD700");
+                            $('#'+result[i].zoneName+'Image').addClass("rotate1");rotate08
+                            break;
+                        case 3: 
+                            $('#'+result[i].zoneName).css("background", '#B8860B');
+                            $('#notificationDivID').css("background", '#B8860B');
+                            $('#'+result[i].zoneName+'Image').addClass("rotate08");
+                            break;	
+                        case 4: 
+                            $('#'+result[i].zoneName).css("background", '#FF8C00');
+                            $('#notificationDivID').css("background", '#FF8C00');
+                            $('#'+result[i].zoneName+'Image').addClass("rotate05");
+                            break;
+                        case 5: 
+                            $('#'+result[i].zoneName).css("background", '#8B0000');
+                            $('#notificationDivID').css("background", '#8B0000');
+                            $('#'+result[i].zoneName+'Image').addClass("rotate02");
+                            break;
+                        default:
+                            $('#'+result[i].zoneName).css("background", "none");
+                            $('#notificationDivID').css("background", "none");
+                            $('#'+result[i].zoneName+'Image').addClass("rotate");
+                    }
+                    
+                   
+                }
+                $("#notificationDivID").html(notiMsg)
+                $("#notificationDivID").slideDown(4000, function(){
+                    $("#notificationDivID").fadeOut(2000);
+                });
+               
+          }});
+        
     }
     $('#nxtBtnID').click(onClickNXtBtn);
-    $('#lanConBtnID').click(lanConnBtnClick);
-    $('#NetLanID').click(stopFan);
-
+    $('#componentAID').click(['ComponentA'], fetchAlertDetails);
+    $('#componentBID').click(['ComponentB'], fetchAlertDetails);
+    $('#componentCID').click(['ComponentC'], fetchAlertDetails);
+    $('#componentDID').click(['ComponentD'], fetchAlertDetails);
+    $('#componentEID').click(['ComponentE'], fetchAlertDetails);
+    $('#componentFID').click(['ComponentF'], fetchAlertDetails);
+    $('#componentGID').click(['ComponentG'], fetchAlertDetails);
+    $('#componentHID').click(['ComponentH'], fetchAlertDetails);
+    $('#componentIID').click(['ComponentI'], fetchAlertDetails);
+    
+    // $('#NetLanID').click(stopFan);
 });

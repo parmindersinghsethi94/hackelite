@@ -1,8 +1,7 @@
 body {
     background-color: #e8e6e6;
    
-    
-  }
+   }
   
   #container{
       width: 100%;
@@ -132,7 +131,7 @@ body {
 
 .compBtn:active {
  outline: white; 
-  box-shadow: 0 5px rgb(192, 168, 123);
+  box-shadow: 5px 5px rgb(192, 168, 123);
   transform: translateY(4px);
 }
 .compFheight{
@@ -160,6 +159,7 @@ body {
   }
   
   #sectionNaming{
+    display: none;
     text-align: center;
     position: fixed;
     bottom: 4rem;
@@ -178,16 +178,32 @@ body {
   .imgFan{
     width: 50px;
   }
-  .rotateFanOnload {
-    -webkit-transform: "rotate(180deg)";
-    -moz-transform: "rotate(180deg)";
-    -o-transform: "rotate(180deg)";
-    transform: "rotate(180deg)";
-    -webkit-transition: "all 0.03s ease-out";
-    -moz-transition: "all 0.03s ease-out";
-    -o-transition: "all 0.03s ease-out";
-    transition: "all 0.03s ease-out";
- }
+.rotate {
+  animation: rotation 5s infinite linear;
+}
+.rotate2 {
+  animation: rotation 2s infinite linear;
+}
+.rotate1 {
+  animation: rotation 1s infinite linear;
+}
+.rotate08 {
+  animation: rotation 0.8s infinite linear;
+}
+.rotate05 {
+  animation: rotation 0.5s infinite linear;
+}
+.rotate02 {
+  animation: rotation 0.2s infinite linear;
+}
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
  .nxtButton{
   background-color: lightskyblue;
   width: 10rem;
@@ -198,5 +214,15 @@ body {
    justify-content: flex-end;
   
  }
+ .displayNone{
+  display: none;
+ }
+ #notificationDivID{
+    width: 18rem;
+    border: 1px solid;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+}
+ 
 
   
