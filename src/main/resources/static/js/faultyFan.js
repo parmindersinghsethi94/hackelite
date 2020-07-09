@@ -30,7 +30,7 @@ $(document).ready(function(){
                         case 2: 
                             $('#'+result[i].zoneName).css("background", "#FFD700");
                             $('#notificationDivID').css("background", "#FFD700");
-                            $('#'+result[i].zoneName+'Image').addClass("rotate1");rotate08
+                            $('#'+result[i].zoneName+'Image').addClass("rotate1");
                             break;
                         case 3: 
                             $('#'+result[i].zoneName).css("background", '#B8860B');
@@ -41,6 +41,11 @@ $(document).ready(function(){
                             $('#'+result[i].zoneName).css("background", '#FF8C00');
                             $('#notificationDivID').css("background", '#FF8C00');
                             $('#'+result[i].zoneName+'Image').addClass("rotate05");
+                            break;
+                        case 5: 
+                            $('#'+result[i].zoneName).css("background", '#8B0000');
+                            $('#notificationDivID').css("background", '#8B0000');
+                            $('#'+result[i].zoneName+'Image').addClass("rotate02");
                             break;
                         case 5: 
                             $('#'+result[i].zoneName).css("background", '#8B0000');

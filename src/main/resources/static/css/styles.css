@@ -33,10 +33,10 @@ body {
    
   }
   .verticalLine2{
-    left: 51%;
+    left: 50.8%;
   }
   .verticalLine3{
-    left: 65.8%;
+    left: 65.3%;
   }
   .compA{
      height: 500px;
@@ -84,6 +84,7 @@ body {
     border-radius: 2rem;
   }
   .connectorsDiv div{
+    position: relative;
       text-align: center;
       padding-top: 1.5rem;
   }
