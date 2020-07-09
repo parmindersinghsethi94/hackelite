@@ -48,11 +48,13 @@ public class HackEliteService {
 		if(noOfAlertsCame!=null) {
 			//zone is already there
 			responseCode = noOfAlertsCame.intValue();
+			
 		}else {
 			//component is not there
 			responseCode = 0;
-			AlertSet.getAlertMapping().setAlertinSet(zoneName);
+			
 		}
+		AlertSet.getAlertMapping().setAlertinSet(zoneName);
 		uiResponseModel.setZoneName(zoneName);
 		uiResponseModel.setResponseCode(responseCode);
 		uiResponseModel.setComponentName(componentName);
