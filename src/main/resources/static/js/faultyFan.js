@@ -13,15 +13,22 @@ $(document).ready(function(){
         $('#sectionNaming').show();
         $('#verticalsContainer').show();
         $('#nxtBtnDivID').hide();
+        $('.connectorsDiv span').css('display','block');
     }
     function fetchAlertDetails(comp){
         $.ajax({
             url: "http://localhost:8080/hackelite/alert/"+comp.data+"/", 
             success: function(result){
                 notiMsg = "";
+                respCode = 0;
                 for(var i=0; i < result.length; i++){
                     notiMsg = notiMsg+result[i].notificationMessage+"</br>";
-                    switch (result[i].responseCode) { 
+                    if(result[i].responseCode > 5){
+                        respCode = 5;
+                    }else{
+                        respCode = result[i].responseCode;
+                    }
+                    switch (respCode) { 
                         case 1: 
                             $('#'+result[i].zoneName).css("background", "#e7d195");
                             $('#notificationDivID').css("background", '#e7d195');
@@ -79,5 +86,4 @@ $(document).ready(function(){
     $('#componentHID').click(['ComponentH'], fetchAlertDetails);
     $('#componentIID').click(['ComponentI'], fetchAlertDetails);
     
-    // $('#NetLanID').click(stopFan);
 });
