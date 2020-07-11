@@ -17,6 +17,10 @@ import com.hackelite.models.UIResponseModel;
 @Component
 public class HackEliteService {
 	
+	private static final String MSG_PART_2 = " temperature alert received for ";
+
+	private static final String MSG_PART_1 = "This is the ";
+
 	private static final Logger LOG = LogManager.getLogger(HackEliteService.class);
 	
 	private Map<String,Integer> alertSet = AlertSet.getAlertMapping().getAlertSet();
@@ -67,25 +71,22 @@ public class HackEliteService {
 		String notificationMsg = "";
 		switch(noOfAlerts) {
 			case 0:
-				notificationMsg = "Application is in learning mode";
+				notificationMsg = MSG_PART_1+ "1st" + MSG_PART_2+zoneName+". Further temperature alerets could degrade the components in the zone.";
 				break;
 			case 1:
-				notificationMsg = "Application has received the 1st temperature alert for the section "+ zoneName + ". The section is in warning state.";
+				notificationMsg = MSG_PART_1+ "2nd" + MSG_PART_2+zoneName+". The zone is in warning state.";
 				break;
 			case 2:
-				notificationMsg = "Application has received 2 temperature alerts for the section "+ zoneName + ". The section is in between warning and critical state.";
+				notificationMsg = MSG_PART_1+ "3rd" + MSG_PART_2+zoneName+". The zone is in between warning and critical state.";
 				break;
 			case 3:
-				notificationMsg = "Application has received 3 temperature alerts for the section "+ zoneName + ". The section is set to critical state.";
+				notificationMsg = MSG_PART_1+ "4th" + MSG_PART_2+zoneName+". The zone is set to critical state.";
 				break;
 			case 4:
-				notificationMsg = "Application has received 4 temperature alerts for the section "+ zoneName + ". The section is in extremely critical state.";
-				break;
-			case 5:
-				notificationMsg = "Application has received 5 temperature alerts for the section "+ zoneName + ". The section is in worse than extremely critical state.";
+				notificationMsg = MSG_PART_1+ "5th" + MSG_PART_2+zoneName+".  The zone is in extremely critical state.";
 				break;
 			default:
-				notificationMsg = "Application has received more than 5 temperature alerts for the section "+ zoneName + ". The section is in the worst possible state.";
+				notificationMsg = "More than 5 temperature alerts have been received for "+ zoneName + ". The zone is in the worst possible state.";
 				break;
 		}
 		LOG.debug("Notification message returned is {}", notificationMsg);
