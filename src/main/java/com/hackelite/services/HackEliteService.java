@@ -71,7 +71,7 @@ public class HackEliteService {
 		String notificationMsg = "";
 		switch(noOfAlerts) {
 			case 0:
-				notificationMsg = MSG_PART_1+ "1st" + MSG_PART_2+zoneName+". Further temperature alerets could degrade the components in the zone.";
+				notificationMsg = MSG_PART_1+ "1st" + MSG_PART_2+zoneName+". Further temperature alerts could degrade the components in the zone.";
 				break;
 			case 1:
 				notificationMsg = MSG_PART_1+ "2nd" + MSG_PART_2+zoneName+". The zone is in warning state.";
