@@ -1,6 +1,4 @@
 $(document).ready(function(){
-    var timeOut = 10;
-    var setTimeoutFxn;
     $('#sectionNaming').hide();
     $('#verticalsContainer').hide();
     
@@ -16,63 +14,67 @@ $(document).ready(function(){
         $('.connectorsDiv span').css('display','block');
     }
     function fetchAlertDetails(comp){
-        $.ajax({
-            url: "http://localhost:8080/hackelite/alert/"+comp.data+"/", 
-            success: function(result){
-                notiMsg = "";
-                respCode = 0;
-                for(var i=0; i < result.length; i++){
-                    notiMsg = notiMsg+result[i].notificationMessage+"</br>";
-                    if(result[i].responseCode > 5){
-                        respCode = 5;
-                    }else{
-                        respCode = result[i].responseCode;
-                    }
-                    switch (respCode) { 
-                        case 1: 
-                            $('#'+result[i].zoneName).css("background", "#e7d195");
-                            $('#notificationDivID').css("background", '#e7d195');
-                            $('#'+result[i].zoneName+'Image').addClass("rotate2");
-                            break;
-                        case 2: 
-                            $('#'+result[i].zoneName).css("background", "#FFD700");
-                            $('#notificationDivID').css("background", "#FFD700");
-                            $('#'+result[i].zoneName+'Image').addClass("rotate1");
-                            break;
-                        case 3: 
-                            $('#'+result[i].zoneName).css("background", '#B8860B');
-                            $('#notificationDivID').css("background", '#B8860B');
-                            $('#'+result[i].zoneName+'Image').addClass("rotate08");
-                            break;	
-                        case 4: 
-                            $('#'+result[i].zoneName).css("background", '#FF8C00');
-                            $('#notificationDivID').css("background", '#FF8C00');
-                            $('#'+result[i].zoneName+'Image').addClass("rotate05");
-                            break;
-                        case 5: 
-                            $('#'+result[i].zoneName).css("background", '#8B0000');
-                            $('#notificationDivID').css("background", '#8B0000');
-                            $('#'+result[i].zoneName+'Image').addClass("rotate02");
-                            break;
-                        case 5: 
-                            $('#'+result[i].zoneName).css("background", '#8B0000');
-                            $('#notificationDivID').css("background", '#8B0000');
-                            $('#'+result[i].zoneName+'Image').addClass("rotate02");
-                            break;
-                        default:
-                            $('#'+result[i].zoneName).css("background", "none");
-                            $('#notificationDivID').css("background", "none");
-                            $('#'+result[i].zoneName+'Image').addClass("rotate");
-                    }
+        $("#notificationDivID").empty();
+        $("#notificationDivID").fadeOut(500);
+        setTimeout(function() {
+            $.ajax({
+                url: "http://localhost:8080/hackelite/alert/"+comp.data+"/", 
+                success: function(result){
+                
+                    var respCode = 0;
+                    for(var i=0; i < result.length; i++){
+                        var notiMsg = "";
+                        notiMsg = result[i].notificationMessage;
+                        if(result[i].responseCode > 5){
+                            respCode = 5;
+                        }else{
+                            respCode = result[i].responseCode;
+                        }
+                        var divElement = "<div id="+result[i].zoneName+"NotiMsg class='notificationClass'>"+notiMsg+"</div>"
+                        $("#notificationDivID").append(divElement);
+                        $("#notificationDivID").slideDown(700);
+                        switch (respCode) { 
+                            case 0: 
+                                $('#'+result[i].zoneName).css("background", "#e7d195");
+                                $('#'+result[i].zoneName+'NotiMsg').css("background", '#e7d195');
+                                $('#'+result[i].zoneName+'Image').addClass("rotate2");
+                                break;
+                            case 1: 
+                                $('#'+result[i].zoneName).css("background", "#FFD700");
+                                $('#'+result[i].zoneName+'NotiMsg').css("background", "#FFD700");
+                                $('#'+result[i].zoneName+'Image').addClass("rotate1");
+                                break;
+                            case 2: 
+                                $('#'+result[i].zoneName).css("background", '#B8860B');
+                                $('#'+result[i].zoneName+'NotiMsg').css("background", '#B8860B');
+                                $('#'+result[i].zoneName+'Image').addClass("rotate08");
+                                break;	
+                            case 3: 
+                                $('#'+result[i].zoneName).css("background", '#FF8C00');
+                                $('#'+result[i].zoneName+'NotiMsg').css("background", '#FF8C00');
+                                $('#'+result[i].zoneName+'Image').addClass("rotate05");
+                                break;
+                            case 4: 
+                                $('#'+result[i].zoneName).css("background", '#8B0000');
+                                $('#'+result[i].zoneName+'NotiMsg').css("background", '#8B0000');
+                                $('#'+result[i].zoneName+'Image').addClass("rotate02");
+                                break;
+                            case 5: 
+                                $('#'+result[i].zoneName).css("background", '#8B0000');
+                                $('#'+result[i].zoneName+'NotiMsg').css("background", '#8B0000');
+                                $('#'+result[i].zoneName+'Image').addClass("rotate02");
+                                break;
+                            default:
+                                $('#'+result[i].zoneName).css("background", "none");
+                                $('#'+result[i].zoneName+'NotiMsg').css("background", "none");
+                                $('#'+result[i].zoneName+'Image').addClass("rotate");
+                        }
+                        
                     
-                   
-                }
-                $("#notificationDivID").html(notiMsg)
-                $("#notificationDivID").slideDown(4000, function(){
-                    $("#notificationDivID").fadeOut(2000);
-                });
-               
-          }});
+                    }
+                        
+            }})
+        }, 0) ;
         
     }
     $('#nxtBtnID').click(onClickNXtBtn);
