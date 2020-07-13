@@ -10,8 +10,32 @@ $(document).ready(function(){
     function onClickNXtBtn(){
         $('#sectionNaming').show();
         $('#verticalsContainer').show();
-        $('#nxtBtnDivID').hide();
+        $('#nxtBtnID').hide();
         $('.connectorsDiv span').css('display','block');
+        $('#soluBtnID').css('display','block');
+    }
+    function onClickSolBtn(){
+        $('#soluBtnID').hide();
+        $('#notificationDivID').hide();
+        $('#componentAID').hide();
+        $('#componentBID').hide();
+        $('#componentCID').hide();
+        $('#componentDID').hide();
+        $('#componentEID').hide();
+        $('#componentFID').hide();
+        $('#componentGID').hide();
+        $('#componentHID').hide();
+        $('#componentIID').hide();
+
+        $('#componentASolID').show();
+        $('#componentBSolID').show();
+        $('#componentCSolID').show();
+        $('#componentDSolID').show();
+        $('#componentESolID').show();
+        $('#componentFSolID').show();
+        $('#componentGSolID').show();
+        $('#componentHSolID').show();
+        $('#componentISolID').show();
     }
     function fetchAlertDetails(comp){
         $("#notificationDivID").empty();
@@ -37,32 +61,32 @@ $(document).ready(function(){
                             case 0: 
                                 $('#'+result[i].zoneName).css("background", "#e7d195");
                                 $('#'+result[i].zoneName+'NotiMsg').css("background", '#e7d195');
-                                $('#'+result[i].zoneName+'Image').addClass("rotate2");
+                                // $('#'+result[i].zoneName+'Image').addClass("rotate2");
                                 break;
                             case 1: 
                                 $('#'+result[i].zoneName).css("background", "#FFD700");
                                 $('#'+result[i].zoneName+'NotiMsg').css("background", "#FFD700");
-                                $('#'+result[i].zoneName+'Image').addClass("rotate1");
+                                // $('#'+result[i].zoneName+'Image').addClass("rotate1");
                                 break;
                             case 2: 
                                 $('#'+result[i].zoneName).css("background", '#B8860B');
                                 $('#'+result[i].zoneName+'NotiMsg').css("background", '#B8860B');
-                                $('#'+result[i].zoneName+'Image').addClass("rotate08");
+                                // $('#'+result[i].zoneName+'Image').addClass("rotate08");
                                 break;	
                             case 3: 
                                 $('#'+result[i].zoneName).css("background", '#FF8C00');
                                 $('#'+result[i].zoneName+'NotiMsg').css("background", '#FF8C00');
-                                $('#'+result[i].zoneName+'Image').addClass("rotate05");
+                                // $('#'+result[i].zoneName+'Image').addClass("rotate05");
                                 break;
                             case 4: 
                                 $('#'+result[i].zoneName).css("background", '#8B0000');
                                 $('#'+result[i].zoneName+'NotiMsg').css("background", '#8B0000');
-                                $('#'+result[i].zoneName+'Image').addClass("rotate02");
+                                // $('#'+result[i].zoneName+'Image').addClass("rotate02");
                                 break;
                             case 5: 
                                 $('#'+result[i].zoneName).css("background", '#8B0000');
                                 $('#'+result[i].zoneName+'NotiMsg').css("background", '#8B0000');
-                                $('#'+result[i].zoneName+'Image').addClass("rotate02");
+                                // $('#'+result[i].zoneName+'Image').addClass("rotate02");
                                 break;
                             default:
                                 $('#'+result[i].zoneName).css("background", "none");
@@ -77,7 +101,30 @@ $(document).ready(function(){
         }, 0) ;
         
     }
+    function showFanSolution(zoneID){
+       var backGroundColor = $('#'+zoneID.data).css( "background-color" )
+        switch (backGroundColor) { 
+            case 'rgb(231, 209, 149)':
+                $('#'+zoneID.data+'Image').addClass("rotate2");
+                break;
+            case 'rgb(255, 215, 0)':
+                $('#'+zoneID.data+'Image').addClass("rotate1");
+                break;
+            case 'rgb(184, 134, 11)':
+                $('#'+zoneID.data+'Image').addClass("rotate08");
+                break;
+            case 'rgb(255, 140, 0)': 
+                $('#'+zoneID.data+'Image').addClass("rotate05");
+                break;
+            case 'rgb(139, 0, 0)': 
+                $('#'+zoneID.data+'Image').addClass("rotate02");
+                break;
+            default:
+                $('#'+zoneID.data+'Image').addClass("rotate");
+        }
+    }
     $('#nxtBtnID').click(onClickNXtBtn);
+    $('#soluBtnID').click(onClickSolBtn);
     $('#componentAID').click(['ComponentA'], fetchAlertDetails);
     $('#componentBID').click(['ComponentB'], fetchAlertDetails);
     $('#componentCID').click(['ComponentC'], fetchAlertDetails);
@@ -87,5 +134,17 @@ $(document).ready(function(){
     $('#componentGID').click(['ComponentG'], fetchAlertDetails);
     $('#componentHID').click(['ComponentH'], fetchAlertDetails);
     $('#componentIID').click(['ComponentI'], fetchAlertDetails);
+    $('#componentIID').click(['ComponentI'], fetchAlertDetails);
+   
+    $('#componentASolID').click(['zone1'],showFanSolution);
+    $('#componentBSolID').click(['zone1'],showFanSolution);
+    $('#componentCSolID').click(['zone2'],showFanSolution);
+    $('#componentDSolID').click(['zone2'],showFanSolution);
+    $('#componentESolID').click(['zone2'],showFanSolution);
+    $('#componentFSolID').click(['zone3'],showFanSolution);
+    $('#componentGSolID').click(['zone3'],showFanSolution);
+    $('#componentHSolID').click(['zone4'],showFanSolution);
+    $('#componentISolID').click(['zone4'],showFanSolution);
     
+
 });

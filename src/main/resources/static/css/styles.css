@@ -29,18 +29,18 @@ body {
 
   }
   .verticalLine1{
-    left: 33.9rem;
+    left: 36rem;
     position: absolute;
     z-index: 9999;
    
   }
   .verticalLine2{
-    left: 48rem;
+    left: 50rem;
     position: absolute;
     z-index: 9999;
   }
   .verticalLine3{
-    left: 61.9rem;
+    left: 64rem;
     position: absolute;
     z-index: 9999;
   }
@@ -170,14 +170,15 @@ body {
     display: none;
     text-align: center;
     position: fixed;
-    bottom: 2rem;
+    bottom: 3rem;
     width: 100%;
   }
   #sectionNaming span{
-      display: inline-block;
-      width: 14%;
-      font-weight: bold;
-      color: green;
+    display: inline-block;
+    width: 10rem;
+    font-weight: bold;
+    color: green;
+    padding-right: 4rem;
   }
 
   .textAlingCenter{
