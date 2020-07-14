@@ -117,7 +117,7 @@ $(document).ready(function(){
                 setTimeout(function(){ increaseFanSpeed(counter,zoneID) }, 3000);
                 break;
             case 1:
-                solNotiMsg = "Based on our prior learning, we knw that this will cause in increase in temperature in Zone 4";
+                solNotiMsg = "Based on our prior learning, we know that this will cause in increase in temperature in Zone 4";
                 var divElement = "<div id="+zoneID.data+"NotiMsg class='notificationClass'>"+solNotiMsg+"</div>"
                 $("#notificationDivID").append(divElement);
                 $("#notificationDivID").slideDown(700);
@@ -152,6 +152,9 @@ $(document).ready(function(){
      }
     function onClickBackBtn(){
         $('#headerTextID').text('Predictive analysis of Server-HDD over-heating repercussions');
+        $('#zone4Image').removeClass("rotate02");
+        $('#zone4Image').removeClass("rotate08");
+        $('#zone4Image').addClass("rotate");
         $('#soluBtnID').show();
        
         $('#componentAID').show();
