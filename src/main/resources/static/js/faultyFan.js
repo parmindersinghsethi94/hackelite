@@ -30,6 +30,11 @@ $(document).ready(function(){
         $('#componentHID').hide();
         $('#componentIID').hide();
 
+        $('#zone4').css("background", "none");
+        $('#zone3').css("background", "none");
+        $('#zone2').css("background", "none");
+        $('#zone1').css("background", "none");
+
         $('#backBtnID').show();
         $('#componentASolID').show();
         $('#componentBSolID').show();
@@ -65,32 +70,26 @@ $(document).ready(function(){
                             case 0: 
                                 $('#'+result[i].zoneName).css("background", "#e7d195");
                                 $('#'+result[i].zoneName+'NotiMsg').css("background", '#e7d195');
-                                // $('#'+result[i].zoneName+'Image').addClass("rotate2");
                                 break;
                             case 1: 
                                 $('#'+result[i].zoneName).css("background", "#FFD700");
                                 $('#'+result[i].zoneName+'NotiMsg').css("background", "#FFD700");
-                                // $('#'+result[i].zoneName+'Image').addClass("rotate1");
                                 break;
                             case 2: 
                                 $('#'+result[i].zoneName).css("background", '#B8860B');
                                 $('#'+result[i].zoneName+'NotiMsg').css("background", '#B8860B');
-                                // $('#'+result[i].zoneName+'Image').addClass("rotate08");
                                 break;	
                             case 3: 
                                 $('#'+result[i].zoneName).css("background", '#FF8C00');
                                 $('#'+result[i].zoneName+'NotiMsg').css("background", '#FF8C00');
-                                // $('#'+result[i].zoneName+'Image').addClass("rotate05");
                                 break;
                             case 4: 
                                 $('#'+result[i].zoneName).css("background", '#8B0000');
                                 $('#'+result[i].zoneName+'NotiMsg').css("background", '#8B0000');
-                                // $('#'+result[i].zoneName+'Image').addClass("rotate02");
                                 break;
                             case 5: 
                                 $('#'+result[i].zoneName).css("background", '#8B0000');
                                 $('#'+result[i].zoneName+'NotiMsg').css("background", '#8B0000');
-                                // $('#'+result[i].zoneName+'Image').addClass("rotate02");
                                 break;
                             default:
                                 $('#'+result[i].zoneName).css("background", "none");
@@ -105,35 +104,52 @@ $(document).ready(function(){
         }, 0) ;
         
     }
-    function showFanSolution(zoneID){
-        $("#notificationDivID").empty();
-        $("#notificationDivID").fadeOut(500);
-        var notiMsg = ""
-       var backGroundColor = $('#'+zoneID.data).css( "background-color" );
-       notiMsg = "The speed of Fan in "+zoneID.data+" has been increased based on the learning from alerts received for the zone.";
-       var divElement = "<div id="+zoneID.data+"NotiMsg class='notificationClass'>"+notiMsg+"</div>"
-       $("#notificationDivID").append(divElement);
-       $("#notificationDivID").slideDown(700);
-        switch (backGroundColor) { 
-            case 'rgb(231, 209, 149)':
-                $('#'+zoneID.data+'Image').addClass("rotate2");
+    var counter = 0;
+    var solNotiMsg = "";
+    function increaseFanSpeed(counter,zoneID){
+        switch (counter){
+            case 0:
+                solNotiMsg = "We have received an alert from the 'Non-volatile Storage' component.";
+                var divElement = "<div id="+zoneID.data+"NotiMsg class='notificationClass'>"+solNotiMsg+"</div>"
+                $("#notificationDivID").append(divElement);
+                $("#notificationDivID").slideDown(700);
+                counter++;
+                setTimeout(function(){ increaseFanSpeed(counter,zoneID) }, 3000);
                 break;
-            case 'rgb(255, 215, 0)':
-                $('#'+zoneID.data+'Image').addClass("rotate1");
+            case 1:
+                solNotiMsg = "Based on our prior learning, we knw that this will cause in increase in temperature in Zone 4";
+                var divElement = "<div id="+zoneID.data+"NotiMsg class='notificationClass'>"+solNotiMsg+"</div>"
+                $("#notificationDivID").append(divElement);
+                $("#notificationDivID").slideDown(700);
+                counter++;
+                setTimeout(function(){ increaseFanSpeed(counter,zoneID) }, 3000);
                 break;
-            case 'rgb(184, 134, 11)':
+            case 2:
+                solNotiMsg = "We will proactively increase the speed of the fan in Zone 4 ";
+                var divElement = "<div id="+zoneID.data+"NotiMsg class='notificationClass'>"+solNotiMsg+"</div>"
+                $("#notificationDivID").append(divElement);
+                $("#notificationDivID").slideDown(700);
                 $('#'+zoneID.data+'Image').addClass("rotate08");
+                counter++;
+                setTimeout(function(){ increaseFanSpeed(counter,zoneID) }, 3000);
                 break;
-            case 'rgb(255, 140, 0)': 
-                $('#'+zoneID.data+'Image').addClass("rotate05");
-                break;
-            case 'rgb(139, 0, 0)': 
+            case 3:
+                solNotiMsg = "After increasing the speed, our solution determined, that could still cause overheating and so, we will proactively further increase the fan speed.";
+                var divElement = "<div id="+zoneID.data+"NotiMsg class='notificationClass'>"+solNotiMsg+"</div>"
+                $("#notificationDivID").append(divElement);
+                $("#notificationDivID").slideDown(700);
                 $('#'+zoneID.data+'Image').addClass("rotate02");
                 break;
             default:
-                $('#'+zoneID.data+'Image').addClass("rotate");
+                counter = 0;  
         }
     }
+    function showFanSolution(zoneID){
+        $("#notificationDivID").empty();
+        $("#notificationDivID").fadeOut(500);
+        counter = 0;
+        increaseFanSpeed(counter,zoneID)
+     }
     function onClickBackBtn(){
         $('#headerTextID').text('Predictive analysis of Server-HDD over-heating repercussions');
         $('#soluBtnID').show();
@@ -175,13 +191,6 @@ $(document).ready(function(){
     $('#componentIID').click(['ComponentI'], fetchAlertDetails);
     $('#componentIID').click(['ComponentI'], fetchAlertDetails);
    
-    $('#componentASolID').click(['zone1'],showFanSolution);
-    $('#componentBSolID').click(['zone1'],showFanSolution);
-    $('#componentCSolID').click(['zone2'],showFanSolution);
-    $('#componentDSolID').click(['zone2'],showFanSolution);
-    $('#componentESolID').click(['zone2'],showFanSolution);
-    $('#componentFSolID').click(['zone3'],showFanSolution);
-    $('#componentGSolID').click(['zone3'],showFanSolution);
     $('#componentHSolID').click(['zone4'],showFanSolution);
     $('#componentISolID').click(['zone4'],showFanSolution);
     
