@@ -22,25 +22,25 @@ body {
     
   
   .verticalLine{
-    border-right: 1px solid green;
-    border-style: dashed;
-    height: 40rem;
+    border-right: 2px dashed darkgreen;
+    height: 38rem;
     position:absolute;
+    display: none;
 
   }
   .verticalLine1{
-    left: 36rem;
+    left: 14rem;
     position: absolute;
     z-index: 9999;
    
   }
   .verticalLine2{
-    left: 50rem;
+    left: 28rem;
     position: absolute;
     z-index: 9999;
   }
   .verticalLine3{
-    left: 64rem;
+    left: 42rem;
     position: absolute;
     z-index: 9999;
   }
@@ -223,6 +223,11 @@ body {
    justify-content: flex-end;
   
  }
+ .backButtonDiv{
+  display: flex;
+  justify-content: flex-start;
+ 
+}
  .displayNone{
   display: none;
  }
@@ -232,6 +237,7 @@ body {
     border-radius: 0.5rem;
     padding: 0.5rem;
     margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
 }
  
 

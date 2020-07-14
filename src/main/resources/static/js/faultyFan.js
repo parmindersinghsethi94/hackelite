@@ -13,8 +13,11 @@ $(document).ready(function(){
         $('#nxtBtnID').hide();
         $('.connectorsDiv span').css('display','block');
         $('#soluBtnID').css('display','block');
+        $('.verticalLine').css('display','block');
+        
     }
     function onClickSolBtn(){
+        $('#headerTextID').text('Predictive analysis of Server-HDD over-heating repercussions and Remedial by mutating Fan Speed');
         $('#soluBtnID').hide();
         $('#notificationDivID').hide();
         $('#componentAID').hide();
@@ -27,6 +30,7 @@ $(document).ready(function(){
         $('#componentHID').hide();
         $('#componentIID').hide();
 
+        $('#backBtnID').show();
         $('#componentASolID').show();
         $('#componentBSolID').show();
         $('#componentCSolID').show();
@@ -102,7 +106,14 @@ $(document).ready(function(){
         
     }
     function showFanSolution(zoneID){
-       var backGroundColor = $('#'+zoneID.data).css( "background-color" )
+        $("#notificationDivID").empty();
+        $("#notificationDivID").fadeOut(500);
+        var notiMsg = ""
+       var backGroundColor = $('#'+zoneID.data).css( "background-color" );
+       notiMsg = "The speed of Fan in "+zoneID.data+" has been increased based on the learning from alerts received for the zone.";
+       var divElement = "<div id="+zoneID.data+"NotiMsg class='notificationClass'>"+notiMsg+"</div>"
+       $("#notificationDivID").append(divElement);
+       $("#notificationDivID").slideDown(700);
         switch (backGroundColor) { 
             case 'rgb(231, 209, 149)':
                 $('#'+zoneID.data+'Image').addClass("rotate2");
@@ -123,8 +134,36 @@ $(document).ready(function(){
                 $('#'+zoneID.data+'Image').addClass("rotate");
         }
     }
+    function onClickBackBtn(){
+        $('#headerTextID').text('Predictive analysis of Server-HDD over-heating repercussions');
+        $('#soluBtnID').show();
+       
+        $('#componentAID').show();
+        $('#componentBID').show();
+        $('#componentCID').show();
+        $('#componentDID').show();
+        $('#componentEID').show();
+        $('#componentFID').show();
+        $('#componentGID').show();
+        $('#componentHID').show();
+        $('#componentIID').show();
+
+        $('#backBtnID').hide();
+        $('#notificationDivID').hide();
+        $('#componentASolID').hide();
+        $('#componentBSolID').hide();
+        $('#componentCSolID').hide();
+        $('#componentDSolID').hide();
+        $('#componentESolID').hide();
+        $('#componentFSolID').hide();
+        $('#componentGSolID').hide();
+        $('#componentHSolID').hide();
+        $('#componentISolID').hide();
+    }
+
     $('#nxtBtnID').click(onClickNXtBtn);
     $('#soluBtnID').click(onClickSolBtn);
+    $('#backBtnID').click(onClickBackBtn);
     $('#componentAID').click(['ComponentA'], fetchAlertDetails);
     $('#componentBID').click(['ComponentB'], fetchAlertDetails);
     $('#componentCID').click(['ComponentC'], fetchAlertDetails);

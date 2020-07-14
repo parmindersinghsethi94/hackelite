@@ -10,12 +10,8 @@
 <body>
 
 <div id="container">
-<h3 class="textAlingCenter">Predictive analysis of Server-HDD over-heating repercussions and Remedial by mutating Fan Speed</h3>
-    <div id="verticalsContainer">
-        <div class="verticalLine verticalLine1"></div>
-        <div class="verticalLine verticalLine2"></div>
-        <div class="verticalLine verticalLine3"></div> 
-    </div>
+<h3 id="headerTextID" class="textAlingCenter">Predictive analysis of Server-HDD over-heating repercussions</h3>
+
     <div>
       
         <div id="serverDivID" class="serverDiv">
@@ -35,6 +31,7 @@
                 </div>
                 <!--  -->
             </div>
+            <div class="verticalLine verticalLine1"></div>
             <div id="zone2" class="connectorsDiv">
                 <div>
                     <img src="css/fan-icon-22.jpg"  id="zone2Image" class="imgFan rotate" alt="" />
@@ -55,6 +52,7 @@
                     <span>Component E</span>
                 </div>
             </div>
+            <div class="verticalLine verticalLine2"></div>
              <div id="zone3" class="connectorsDiv">
                 <div>
                     <img src="css/fan-icon-22.jpg"  id="zone3Image" class="imgFan rotate" alt="" />
@@ -71,6 +69,7 @@
                     <span>Component G</span>
                 </div>
              </div>
+             <div class="verticalLine verticalLine3"></div> 
              <div id="zone4" class="connectorsDiv">
                 <div>
                     <img src="css/fan-icon-22.jpg"  id="zone4Image" class="imgFan rotate" alt="" />
@@ -90,10 +89,15 @@
              
              
         </div>
+        <div class="backButtonDiv" id="backBtnDivID">
+            <button class="nxtButton displayNone" id="backBtnID"> &lt;&lt;Back</button>
+        </div>
         <div class="nxtButtonDiv" id="nxtBtnDivID">
           <button class="nxtButton" id="nxtBtnID">View Zones</button>
           <button class="nxtButton displayNone" id="soluBtnID">View Solution</button>
         </div>
+        
+        
         <div id="sectionNaming">
             <span>Zone 1</span>
             <span>Zone 2</span>
