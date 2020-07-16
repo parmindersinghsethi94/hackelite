@@ -18,6 +18,16 @@ $(document).ready(function(){
     }
     function onClickSolBtn(){
         $('#headerTextID').text('Predictive analysis of Server-HDD over-heating repercussions and Remedial by mutating Fan Speed');
+        $('#zone1Image').removeClass("rotate02");
+        $('#zone2Image').removeClass("rotate02");
+        $('#zone3Image').removeClass("rotate02");
+        $('#zone4Image').removeClass("rotate02");
+
+        $('#zone1Image').addClass("rotate");
+        $('#zone2Image').addClass("rotate");
+        $('#zone3Image').addClass("rotate");
+        $('#zone4Image').addClass("rotate");
+
         $('#soluBtnID').hide();
         $('#notificationDivID').hide();
         $('#componentAID').hide();
@@ -86,10 +96,12 @@ $(document).ready(function(){
                             case 4: 
                                 $('#'+result[i].zoneName).css("background", '#8B0000');
                                 $('#'+result[i].zoneName+'NotiMsg').css("background", '#8B0000');
+                                $('#'+result[i].zoneName+'Image').addClass("rotate02");
                                 break;
                             case 5: 
                                 $('#'+result[i].zoneName).css("background", '#8B0000');
                                 $('#'+result[i].zoneName+'NotiMsg').css("background", '#8B0000');
+                                $('#'+result[i].zoneName+'Image').addClass("rotate02");
                                 break;
                             default:
                                 $('#'+result[i].zoneName).css("background", "none");
